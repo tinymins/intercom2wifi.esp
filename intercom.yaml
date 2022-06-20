@@ -1,0 +1,109 @@
+esphome:
+  name: intercom
+
+esp8266:
+  board: d1_mini
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: !secret API_PASSWORD
+
+ota:
+  password: !secret OTA_PASSWORD
+
+wifi:
+  ssid: !secret WIFI_SSID
+  password: !secret WIFI_PASSWORD
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: !secret AP_SSID
+    password: !secret AP_PASSWORD
+
+captive_portal:
+
+binary_sensor:
+  - platform: gpio
+    id: intercom_ringer
+    pin:
+      number: D5
+      mode:
+        input: true
+      inverted: true
+    on_press:
+      then:
+        - output.turn_on: intercom_ringer_led_out
+        - output.set_level:
+            id: intercom_ringer_led_out
+            level: 60%
+    on_release:
+      then:
+        - output.turn_off: intercom_ringer_led_out
+    name: "Intercom Ringer"
+    filters:
+      - delayed_on: 20ms
+      - delayed_off: 20ms
+    device_class: sound
+    icon: mdi:bell-ring-outline
+
+  - platform: gpio
+    id: intercom_mute_sw
+    pin:
+      number: D7
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    name: "Intercom Mute Switcher"
+    filters:
+      - delayed_on: 20ms
+      - delayed_off: 20ms
+    internal: true
+    on_press:
+      then:
+        - switch.toggle: intercom_mute
+
+switch:
+  - platform: gpio
+    id: intercom_mute
+    pin: D1
+    name: "Intercom Mute"
+    icon: mdi:volume-mute
+
+  - platform: output
+    id: intercom_unlock
+    output: intercom_unlock_out
+    name: "Intercom Unlock"
+    icon: mdi:lock-open-variant-outline
+    on_turn_on:
+      - delay: 500ms
+      - switch.turn_off: intercom_unlock
+
+  #########################################
+  ##                DEBUG                ##
+  #########################################
+  # - platform: output
+  #   output: intercom_ringer_led_out
+  #   name: "Intercom Ringer LED"
+  #   on_turn_on:
+  #     then:
+  #       - output.turn_on: intercom_ringer_led_out
+  #       - output.set_level:
+  #           id: intercom_ringer_led_out
+  #           level: 50%
+  #   on_turn_off:
+  #     then:
+  #       - output.turn_off: intercom_ringer_led_out
+
+output:
+  - platform: gpio
+    id: intercom_unlock_out
+    pin: D2
+
+  - platform: slow_pwm
+    id: intercom_ringer_led_out
+    pin: D6
+    period: 600ms
