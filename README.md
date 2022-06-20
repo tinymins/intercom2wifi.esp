@@ -8,11 +8,11 @@ Intercom to WiFi for JB-2201-F03 over ESP8266 on Home Assistant.
 
 JB-2201-F03 门禁话机，通过 D1-Mini 开发板 (ESP8266) 连接到 Home Assistant 实现开门与铃声推送。
 
-## configure
+## Configure ⚙️
 
 Copy `secrets.sample.yaml` to `secrets.yaml`, and update secrets data.
 
-## deploy
+## Deploy 🪒
 
 ```bat
 esphome run --device DEVICE_NAME intercom.yaml
