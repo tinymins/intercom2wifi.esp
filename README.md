@@ -1,6 +1,6 @@
 # intercom2wifi
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Intercom to WiFi for JB-2201-F03 over ESP8266 on Home Assistant.
@@ -34,6 +34,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="http://haoc.wang"><img src="https://avatars.githubusercontent.com/u/16266909?v=4?s=100" width="100px;" alt=""/><br /><sub><b>叶踏池</b></sub></a><br /><a href="https://github.com/tinymins/intercom2wifi.esp/commits?author=whc2001" title="Code">💻</a></td>
+    <td align="center"><a href="https://zhaiyiming.com/"><img src="https://avatars.githubusercontent.com/u/1808990?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Emil Zhai</b></sub></a><br /><a href="https://github.com/tinymins/intercom2wifi.esp/commits?author=tinymins" title="Code">💻</a></td>
   </tr>
 </table>
 
