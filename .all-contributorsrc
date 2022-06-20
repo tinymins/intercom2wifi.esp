@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "whc2001",
+      "name": "叶踏池",
+      "avatar_url": "https://avatars.githubusercontent.com/u/16266909?v=4",
+      "profile": "http://haoc.wang",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "intercom2wifi.esp",
+  "projectOwner": "tinymins",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
